@@ -2,4 +2,4 @@
 
 - free edition
 - github and databricks integration 
-- vscode and databricks integration
+- workflow with github in vscode and in databricks 
