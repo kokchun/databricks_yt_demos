@@ -1,0 +1,46 @@
+Table fct_orderlines {
+  order_item_id integer [primary key]
+  order_id integer [ref: > dim_order.order_id]
+  customer_id integer [ref: > dim_customer.customer_id]
+  product_id integer [ref: > dim_product.product_id]
+  order_datetime_id integer [ref: > dim_date.datetime_id]
+  quantity integer
+  order_item_price double
+  discount_rate double
+  total_amount double
+}
+
+Table dim_product {
+  product_id integer [primary key]
+  product_name string
+  category_name string
+  department_name string
+  product_price double
+}
+
+
+Table dim_customer {
+  customer_id integer [primary key]
+  first_name string
+  last_name string
+  country string
+  state string
+  segment string
+}
+
+Table dim_order {
+  order_id integer [primary key]
+  order_status string
+}
+
+Table dim_date {
+  datetime_id integer [primary key]
+  datetime timestamp
+  year integer
+  month integer
+  weekday string
+  hour integer
+  minute integer
+}
+
+ 
