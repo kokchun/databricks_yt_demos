@@ -12,7 +12,7 @@ from utils.utils import rename_columns_to_snake_case
 
 
 @dp.table(
-    name="supply_chain.silver.supply_chain_obt",
+    name="supply_chain_demo.silver.supply_chain_obt",
     comment="Cleaned supply chain data for DataCo",
     table_properties={
         "delta.columnMapping.mode": "name",
@@ -22,7 +22,7 @@ from utils.utils import rename_columns_to_snake_case
 )
 def cleaned_supply_chain():
     df = rename_columns_to_snake_case(
-        spark.sql("SELECT * FROM STREAM supply_chain.bronze.raw_supply_chain")
+        spark.sql("SELECT * FROM STREAM supply_chain_demo.bronze.raw_supply_chain")
     )
 
     return (
